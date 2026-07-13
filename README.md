@@ -41,6 +41,13 @@ Designed and developed an e-commerce website for selling mango products using
 <strong>PHP</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.
 </p>
 
+<h3>Konsepto Clothing E-commerce Website</h3>
+
+<p>
+Developed a full-stack e-commerce website for <strong>Konsepto</strong>, a clothing brand. Responsible for both the front-end and back-end development, implementing product management, user authentication, shopping cart functionality, and database integration using
+<strong>PHP</strong>, <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>MySQL</strong>.
+</p>
+
 <hr>
 
 <h2>🎓 On-the-Job Training</h2>
