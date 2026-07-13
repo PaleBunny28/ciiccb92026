@@ -1,9 +1,5 @@
 <h1 align="center">Hi, I'm Angelo! 👋</h1>
 
-<p align="center">
-  <strong>Information Technology Professional</strong>
-</p>
-
 <p>
 Motivated and detail-oriented Information Technology professional seeking an opportunity to contribute technical knowledge, problem-solving abilities, and a strong willingness to learn in a dynamic work environment. Equipped with practical experience in technical support, system configuration, and web content management through academic projects and on-the-job training. Dedicated to delivering high-quality work and growing into a valuable asset within the IT industry.
 </p>
