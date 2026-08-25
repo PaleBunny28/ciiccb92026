@@ -18,17 +18,17 @@ public class VowelConsonantChecker {
 
             if (ch >= 'a' && ch <= 'z') {
                 if (vowelsList.indexOf(ch) != -1) {
-                    System.out.println(ch + " → Vowel");
+                    System.out.println(ch + " - Vowel");
                     vowelCount++;
                 } else {
-                    System.out.println(ch + " → Consonant");
+                    System.out.println(ch + " - Consonant");
                     consonantCount++;
                 }
             }
         }
 
-        System.out.println("\n✅ Total Vowels: " + vowelCount);
-        System.out.println("✅ Total Consonants: " + consonantCount);
+        System.out.println("\nTotal Vowels: " + vowelCount);
+        System.out.println("Total Consonants: " + consonantCount);
         
         input.close();
     }
