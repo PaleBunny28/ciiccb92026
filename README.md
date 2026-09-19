@@ -1,70 +1,61 @@
-<h1 align="center">Hi, I'm Angelo! 👋</h1>
+# StudentPocket — Student Banking App (Java)
 
-<p align="center">
-  <strong>Information Technology Professional</strong>
-</p>
+A simple console-based banking application for students, written in plain
+Java with **no external dependencies and no database**. All accounts live
+in memory for as long as the program is running.
 
-<p>
-Motivated and detail-oriented Information Technology professional seeking an opportunity to contribute technical knowledge, problem-solving abilities, and a strong willingness to learn in a dynamic work environment. Equipped with practical experience in technical support, system configuration, and web content management through academic projects and on-the-job training. Dedicated to delivering high-quality work and growing into a valuable asset within the IT industry.
-</p>
+## Features
 
-<hr>
+- **Open an account** — name, student ID, 4-digit PIN, optional initial deposit
+- **Login** with account number + PIN
+- **Deposit / Withdraw** — withdrawals enforce a daily limit (5,000 by
+  default) and a minimum balance of 0
+- **Transfer** funds to another student's account
+- **Transaction history** for each account, with timestamps
+- **Change PIN**
+- **Admin panel** (password `admin123`) to list all accounts, see total
+  bank-wide deposits, and apply monthly interest (2.5% annual, simple
+  interest) to every account
 
-<h2>🛠 Skills</h2>
+## No database
 
-<ul>
-  <li>HTML</li>
-  <li>CSS</li>
-  <li>PHP</li>
-  <li>SQL</li>
-  <li>C++</li>
-  <li>Python</li>
-  <li>Java</li>
-  <li>JavaScript</li>
-  <li>Objective-C</li>
-  <li>Networking</li>
-  <li>Cybersecurity</li>
-  <li>Technical Support</li>
-  <li>WordPress</li>
-  <li>Image Editing</li>
-  <li>Video Editing</li>
-</ul>
+Everything is kept in a single in-memory `HashMap<String, Account>` inside
+`StudentBankApp`. Nothing is written to disk, so **all accounts disappear
+when the program exits** — perfect for a demo, a class assignment, or as a
+starting point before you wire up real storage.
 
-<hr>
+## Files
 
-<h2>💻 Projects</h2>
+| File                  | Purpose                                      |
+|------------------------|-----------------------------------------------|
+| `StudentBankApp.java` | Main class and all menus                      |
+| `Account.java`        | Account model: balance, PIN, withdrawal rules |
+| `Transaction.java`    | A single deposit/withdrawal/transfer record   |
+| `BankException.java`  | Custom exception for failed withdrawals       |
 
-<h3>Mangola E-commerce Website</h3>
+## How to run
 
-<p>
-Designed and developed an e-commerce website for selling mango products using
-<strong>PHP</strong>, <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.
-</p>
+You need a JDK installed (Java 8+). Then, from this folder:
 
-<h3>Konsepto Clothing E-commerce Website</h3>
+```bash
+javac *.java
+java StudentBankApp
+```
 
-<p>
-Developed a full-stack e-commerce website for <strong>Konsepto</strong>, a clothing brand. Responsible for both the front-end and back-end development, implementing product management, user authentication, shopping cart functionality, and database integration using
-<strong>PHP</strong>, <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>MySQL</strong>.
-</p>
+## Notes / things to change before real-world use
 
-<hr>
+- PINs are stored as plain text for simplicity — in a real app, hash them
+  (e.g. with `BCrypt` or `SHA-256` + salt).
+- The admin password is hard-coded (`admin123`) — move it to a config file
+  or environment variable.
+- There's no persistence at all right now. If you later want accounts to
+  survive a restart, two easy options are:
+  - Save/load the `accounts` map to a file with Java serialization
+  - Connect to a real database (SQLite is the simplest to start with)
 
-<h2>🎓 On-the-Job Training</h2>
+## Ideas to extend it
 
-<h3>Alarmnet Inc.</h3>
-
-<ul>
-  <li>Assisted in editing and updating website content and design using <strong>WordPress</strong>.</li>
-  <li>Configured and tested security devices, including CCTV systems, alarm control panels, and keypads.</li>
-  <li>Participated in site visits to DMCI branches to demonstrate and provide orientation on ALARMNET's newly introduced products.</li>
-  <li>Conducted follow-up calls with Palawan branches to verify the operational status of their alarm systems and address basic concerns.</li>
-</ul>
-
-<hr>
-
-<h2>🎯 Career Objective</h2>
-
-<p>
-Seeking an entry-level position where I can apply my technical knowledge, continuously learn new technologies, and contribute to innovative IT solutions while growing professionally.
-</p>
+- Add account types (checking vs. savings) with different rules
+- Add a "savings goal" tracker for students
+- Export transaction history to CSV
+- Build a Swing or JavaFX GUI on top of the same `Account`/`StudentBankApp` logic
